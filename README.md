@@ -1,4 +1,4 @@
-# NomadNest — Farah 3 Setup Guide (PHP + SQL)
+# NomadNest — Farah Setup Guide (PHP + SQL)
 ```
 nomadnest/
 ├── nomadnest.sql          ← Run this FIRST in phpMyAdmin
