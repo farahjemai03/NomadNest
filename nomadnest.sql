@@ -180,3 +180,9 @@ INSERT INTO messages (sender_id, receiver_id, body) VALUES
 (1, 4, 'Hi Camille! Is the Lantern Loft available on the 25th?'),
 (4, 1, 'Hey Léa! Yes it is, go ahead and book through the site.'),
 (2, 3, 'Priya, want to co-work at Atelier Nord next week?');
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1600508774634-4e11d34730e2?w=600&q=80' WHERE id = 1;
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' WHERE id = 2;
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=600&q=80' WHERE id = 3;
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=600&q=80' WHERE id = 4;
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y293b3JraW5nJTIwc3BhY2V8ZW58MHx8MHx8fDA%3D' WHERE id = 5;
+UPDATE spaces SET image = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80' WHERE id = 6;

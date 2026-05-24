@@ -16,10 +16,24 @@ $currentUserId = $_SESSION['user_id'];
 </head>
 <body>
 
-    <!-- MEMBER 1: Build conversation sidebar and chat thread UI here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/messages.php to load conversations -->
-    <!--           Calls /nomadnest/api/messages.php?with=X for a thread -->
-    <!--           POSTs to /nomadnest/api/messages.php to send a message -->
+    <div class="messages-layout">
+
+    <aside class="conversation-sidebar">
+        <div id="conversationsList"></div>
+    </aside>
+
+    <section class="chat-section">
+
+        <div id="messagesThread"></div>
+
+        <div class="message-input">
+            <input type="text" id="messageText" placeholder="Write message...">
+            <button id="sendMessageBtn">Send</button>
+        </div>
+
+    </section>
+
+</div>
 
     <script>
         const CURRENT_USER_ID = <?= $currentUserId ?>;

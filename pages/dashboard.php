@@ -14,8 +14,35 @@ require_login();
 </head>
 <body>
 
-    <!-- MEMBER 1: Build stat widgets, bookings table, subscription cards here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/dashboard.php to load all data -->
+    <div class="dashboard">
+
+    <h1>User Dashboard</h1>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Total bookings</h3>
+            <p id="totalBookings">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Active subscriptions</h3>
+            <p id="activeSubscriptions">0</p>
+        </div>
+
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Space</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="bookingsTable"></tbody>
+    </table>
 
     <script src="/nomadnest/js/dashboard.js"></script>
 </body>

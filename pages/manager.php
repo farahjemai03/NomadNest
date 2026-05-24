@@ -14,9 +14,31 @@ require_host();
 </head>
 <body>
 
-    <!-- MEMBER 1: Build KPI cards, revenue chart area, listings grid here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/manager.php to load all data -->
-    <!--           POSTs to /nomadnest/api/manager.php to approve/reject bookings -->
+    <div class="manager-dashboard">
+
+    <h1>Manager Dashboard</h1>
+
+    <div class="kpi-grid">
+
+        <div class="kpi-card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue"></p>
+        </div>
+
+        <div class="kpi-card">
+            <h3>Total Bookings</h3>
+            <p id="managerBookings"></p>
+        </div>
+
+    </div>
+
+    <h2>Your Listings</h2>
+    <div id="listingsGrid"></div>
+
+    <h2>Pending Bookings</h2>
+    <div id="pendingBookings"></div>
+
+</div>
 
     <script src="/nomadnest/js/manager.js"></script>
 </body>

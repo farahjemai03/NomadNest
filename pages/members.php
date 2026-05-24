@@ -15,8 +15,19 @@ $currentUserId = $_SESSION['user_id'] ?? null;
 </head>
 <body>
 
-    <!-- MEMBER 1: Build member cards and city filter tabs here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/members.php?city=X to load members -->
+    <div class="members-page">
+
+    <h1>Members</h1>
+
+    <div class="members-filters">
+        <select id="memberCityFilter">
+            <option value="">All cities</option>
+        </select>
+    </div>
+
+    <div id="membersGrid"></div>
+
+</div>
 
     <script>
         const CITIES = <?= json_encode($cities) ?>;

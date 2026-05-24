@@ -14,13 +14,33 @@ $cities = $pdo->query("SELECT DISTINCT city FROM spaces ORDER BY city")->fetchAl
 </head>
 <body>
 
-    <!-- MEMBER 1: Build the filter sidebar and space card grid here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/spaces.php with filters and renders cards -->
+<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
 
-    <!-- Pass cities to JS -->
+<div class="spaces-page">
+
+    <aside class="filters-sidebar">
+
+        <h3>Filters</h3>
+
+        <select id="cityFilter">
+            <option value="">All cities</option>
+        </select>
+
+        <input type="number" id="maxPrice" placeholder="Max price">
+
+        <button id="applyFilters">Apply Filters</button>
+
+    </aside>
+
+    <section class="spaces-section">
+        <div id="spacesGrid" class="spaces-grid"></div>
+    </section>
+
+</div>
     <script>
         const CITIES = <?= json_encode($cities) ?>;
     </script>
     <script src="/nomadnest/js/spaces.js"></script>
+    <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

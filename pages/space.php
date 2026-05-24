@@ -27,10 +27,30 @@ if (!$space) {
 </head>
 <body>
 
-    <!-- MEMBER 1: Build gallery, tabs, booking widget UI here -->
-    <!-- MEMBER 2: Calls /nomadnest/api/space.php?id=X to load full data -->
-    <!--           Calls /nomadnest/api/space.php?id=X&booked=1 for the calendar -->
+    <div class="space-details">
 
+    <div id="spaceGallery" class="gallery"></div>
+
+    <div class="space-info">
+        <h1 id="spaceName"></h1>
+        <p id="spaceDescription"></p>
+        <p id="spacePrice"></p>
+    </div>
+
+    <div class="booking-widget">
+
+        <h3>Book this space</h3>
+
+        <input type="date" id="checkIn">
+        <input type="date" id="checkOut">
+
+        <button id="bookBtn">Book Now</button>
+
+    </div>
+
+    <div id="reviewsContainer"></div>
+
+</div>
     <script>
         const SPACE_ID = <?= $id ?>;
     </script>
