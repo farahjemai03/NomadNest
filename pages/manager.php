@@ -13,7 +13,7 @@ require_host();
     <link rel="stylesheet" href="/nomadnest/css/style.css">
 </head>
 <body>
-
+<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
     <div class="manager-dashboard">
 
     <h1>Manager Dashboard</h1>
@@ -41,5 +41,6 @@ require_host();
 </div>
 
     <script src="/nomadnest/js/manager.js"></script>
+    <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

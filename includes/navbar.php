@@ -1,7 +1,4 @@
 <?php
-// includes/navbar.php
-// Include at the top of every page's <body>
-// Requires session_start() to already be called in the parent page.
 $current = basename($_SERVER['PHP_SELF']);
 ?>
 <nav class="navbar">
@@ -10,16 +7,11 @@ $current = basename($_SERVER['PHP_SELF']);
     </a>
 
     <div class="navbar-links">
-        <a href="/nomadnest/pages/spaces.php"    class="<?= $current === 'spaces.php'    ? 'active' : '' ?>">Spaces</a>
-        <a href="/nomadnest/pages/members.php"   class="<?= $current === 'members.php'   ? 'active' : '' ?>">Members</a>
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <?php if ($_SESSION['user_role'] === 'host'): ?>
-                <a href="/nomadnest/pages/manager.php"   class="<?= $current === 'manager.php'   ? 'active' : '' ?>">For Hosts</a>
-            <?php else: ?>
-                <a href="/nomadnest/pages/dashboard.php" class="<?= $current === 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
-            <?php endif; ?>
-            <a href="/nomadnest/pages/messages.php"  class="<?= $current === 'messages.php'  ? 'active' : '' ?>">Messages</a>
-        <?php endif; ?>
+        <a href="/nomadnest/pages/spaces.php"   class="<?= $current === 'spaces.php'    ? 'active' : '' ?>">Spaces</a>
+        <a href="/nomadnest/pages/members.php"  class="<?= $current === 'members.php'   ? 'active' : '' ?>">Members</a>
+        <a href="/nomadnest/pages/dashboard.php"class="<?= $current === 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
+        <a href="/nomadnest/pages/manager.php"  class="<?= $current === 'manager.php'   ? 'active' : '' ?>">For Hosts</a>
+        <a href="/nomadnest/pages/messages.php" class="<?= $current === 'messages.php'  ? 'active' : '' ?>">Messages</a>
     </div>
 
     <div class="navbar-actions">

@@ -26,7 +26,7 @@ if (!$space) {
     <link rel="stylesheet" href="/nomadnest/css/style.css">
 </head>
 <body>
-
+<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
     <div class="space-details">
 
     <div id="spaceGallery" class="gallery"></div>
@@ -55,5 +55,6 @@ if (!$space) {
         const SPACE_ID = <?= $id ?>;
     </script>
     <script src="/nomadnest/js/space.js"></script>
+    <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

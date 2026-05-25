@@ -1,3 +1,7 @@
+/* spaces.js
+Page: spaces.html / spaces.php
+Role: afficher les espaces + filtrer par ville et prix.
+*/
 var allSpaces = [];
 
 function loadSpaces() {

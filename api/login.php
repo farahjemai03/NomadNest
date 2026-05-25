@@ -38,7 +38,7 @@ $_SESSION['user_name'] = $user['name'];
 $_SESSION['user_role'] = $user['role'];
 
 // Redirect destination based on role
-$redirect = $user['role'] === 'host' ? '/pages/manager.php' : '/pages/dashboard.php';
+$redirect = $user['role'] === 'host' ? '/nomadnest/pages/manager.php' : '/nomadnest/pages/dashboard.php';
 
 echo json_encode([
     'success'  => true,

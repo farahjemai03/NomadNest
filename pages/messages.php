@@ -15,7 +15,7 @@ $currentUserId = $_SESSION['user_id'];
     <link rel="stylesheet" href="/nomadnest/css/style.css">
 </head>
 <body>
-
+<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
     <div class="messages-layout">
 
     <aside class="conversation-sidebar">

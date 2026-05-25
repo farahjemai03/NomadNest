@@ -1,78 +1,76 @@
 <?php
-// api/members.php
-// GET ?city=Paris  → returns public member profiles
-// POST action=connect  body: { to_user }
-// POST action=disconnect body: { to_user }
-
+/* api/members.php
+   Handles GET (list/filter members) and POST (send connection request)
+*/
 session_start();
-header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/db.php';
 
-// POST: connection actions (must be logged in)
+header('Content-Type: application/json');
+
+// ── POST: send connection request ────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once __DIR__ . '/../includes/auth_check.php';
-    require_login();
-
-    $action  = trim($_POST['action']  ?? '');
-    $toUser  = (int)($_POST['to_user'] ?? 0);
-    $fromUser = $_SESSION['user_id'];
-
-    if (!$toUser || $toUser === $fromUser) {
-        echo json_encode(['success' => false, 'message' => 'Invalid user']);
+    if (!isset($_SESSION['user_id'])) {
+        echo json_encode(['success' => false, 'message' => 'Connecte-toi avant']);
         exit;
     }
 
-    if ($action === 'connect') {
+    $fromUser = (int) $_SESSION['user_id'];
+    $toUser   = (int) ($_POST['to_user'] ?? 0);
+
+    if (!$toUser || $toUser === $fromUser) {
+        echo json_encode(['success' => false, 'message' => 'Requête invalide']);
+        exit;
+    }
+
+    try {
         $stmt = $pdo->prepare("
             INSERT IGNORE INTO connections (from_user, to_user, status)
             VALUES (?, ?, 'pending')
         ");
         $stmt->execute([$fromUser, $toUser]);
-        echo json_encode(['success' => true, 'message' => 'Connection request sent']);
-        exit;
-    }
 
-    if ($action === 'disconnect') {
-        $stmt = $pdo->prepare("
-            DELETE FROM connections
-            WHERE (from_user = ? AND to_user = ?) OR (from_user = ? AND to_user = ?)
-        ");
-        $stmt->execute([$fromUser, $toUser, $toUser, $fromUser]);
-        echo json_encode(['success' => true, 'message' => 'Disconnected']);
-        exit;
+        if ($stmt->rowCount()) {
+            echo json_encode(['success' => true, 'message' => 'Invitation envoyée !']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Invitation déjà envoyée']);
+        }
+    } catch (PDOException $e) {
+        echo json_encode(['success' => false, 'message' => 'Erreur serveur']);
     }
-
-    echo json_encode(['success' => false, 'message' => 'Unknown action']);
     exit;
 }
 
-// GET: list members
+// ── GET: fetch members ────────────────────────────────────────
 $city = trim($_GET['city'] ?? '');
 
-$where  = [];
-$params = [];
+try {
+    if ($city !== '') {
+        $stmt = $pdo->prepare("
+            SELECT id, name, city, bio, tags, status, avatar
+            FROM users
+            WHERE role = 'member' AND city = ?
+            ORDER BY name
+        ");
+        $stmt->execute([$city]);
+    } else {
+        $stmt = $pdo->query("
+            SELECT id, name, city, bio, tags, status, avatar
+            FROM users
+            WHERE role = 'member'
+            ORDER BY name
+        ");
+    }
 
-// Only show members (not hosts in this view, adjust if needed)
-$where[] = "u.role = 'member'";
+    $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($city) {
-    $where[]  = 'u.city = ?';
-    $params[] = $city;
+    // Split tags string into array for JS
+    foreach ($members as &$m) {
+        $m['tags'] = $m['tags'] ? array_map('trim', explode(',', $m['tags'])) : [];
+    }
+    unset($m);
+
+    echo json_encode(['success' => true, 'data' => $members]);
+
+} catch (PDOException $e) {
+    echo json_encode(['success' => false, 'message' => 'Erreur serveur', 'data' => []]);
 }
-
-$whereSql = $where ? 'WHERE ' . implode(' AND ', $where) : '';
-
-$stmt = $pdo->prepare("
-    SELECT u.id, u.name, u.city, u.bio, u.tags, u.avatar, u.status
-    FROM users u
-    $whereSql
-    ORDER BY u.status = 'open' DESC, u.name ASC
-");
-$stmt->execute($params);
-$members = $stmt->fetchAll();
-
-foreach ($members as &$m) {
-    $m['tags'] = $m['tags'] ? explode(',', $m['tags']) : [];
-}
-
-echo json_encode(['success' => true, 'data' => $members]);

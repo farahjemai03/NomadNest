@@ -186,3 +186,21 @@ UPDATE spaces SET image = 'https://images.unsplash.com/photo-1527192491265-7e15c
 UPDATE spaces SET image = 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=600&q=80' WHERE id = 4;
 UPDATE spaces SET image = 'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y293b3JraW5nJTIwc3BhY2V8ZW58MHx8MHx8fDA%3D' WHERE id = 5;
 UPDATE spaces SET image = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80' WHERE id = 6;
+
+-- Add avatar URLs to existing members
+UPDATE users SET avatar = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80' WHERE email = 'lea@nomadnest.com';
+UPDATE users SET avatar = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80' WHERE email = 'daniel@nomadnest.com';
+UPDATE users SET avatar = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&q=80' WHERE email = 'priya@nomadnest.com';
+
+-- Add more member users with photos
+INSERT INTO users (name, email, password, role, city, bio, tags, status, avatar) VALUES
+('Sofia Andrade',   'sofia@nomadnest.com',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Lisbon',      'Frontend dev in love with animation and CSS wizardry.',        'CSS,React,Motion',          'open',    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80'),
+('Yuki Tanaka',     'yuki@nomadnest.com',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Tokyo',       'UX researcher and part-time ceramicist.',                      'UX,Research,Ceramics',      'busy',    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80'),
+('Nico Ferreira',   'nico@nomadnest.com',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Berlin',      'Open-source advocate and Rust evangelist.',                    'Rust,OSS,Backend',          'open',    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80'),
+('Amara Diallo',    'amara@nomadnest.com',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Paris',       'Startup lawyer turned legaltech founder.',                     'LegalTech,Contracts,SaaS',  'open',    'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&q=80'),
+('Jake Morrison',   'jake@nomadnest.com',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'New York',    'Growth marketer obsessed with retention curves.',              'Growth,Email,Analytics',    'offline', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80'),
+('Mei Lin',         'mei@nomadnest.com',     '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Tokyo',       'Data scientist building climate models.',                      'Python,Climate,ML',         'open',    'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&q=80'),
+('Carlos Vega',     'carlos@nomadnest.com',  '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Mexico City', 'Illustrator and brand identity designer.',                     'Illustration,Branding,SVG', 'busy',    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&q=80'),
+('Ingrid Holm',     'ingrid@nomadnest.com',  '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Berlin',      'Product manager shipping B2B tools at warp speed.',           'Product,B2B,Roadmaps',      'open',    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80'),
+('Ravi Nair',       'ravi@nomadnest.com',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Lisbon',      'DevOps engineer who automates everything, twice.',             'DevOps,Kubernetes,CI/CD',   'open',    'https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&q=80'),
+('Zara Ahmed',      'zara@nomadnest.com',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'member', 'Paris',       'Content strategist and newsletter writer.',                    'Content,SEO,Newsletters',   'offline', 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150&q=80');

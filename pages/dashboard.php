@@ -13,6 +13,7 @@ require_login();
     <link rel="stylesheet" href="/nomadnest/css/style.css">
 </head>
 <body>
+    <?php require_once __DIR__ . '/../includes/navbar.php'; ?>
 
     <div class="dashboard">
 
@@ -45,5 +46,6 @@ require_login();
     </table>
 
     <script src="/nomadnest/js/dashboard.js"></script>
+    <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

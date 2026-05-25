@@ -60,7 +60,7 @@ $spaces = $pdo->query("
             margin-bottom: 1.5rem;
         }
         .hero h1 {
-            color: var(--white);
+            color: var(--black);
             font-size: clamp(2.2rem, 5vw, 3.6rem);
             line-height: 1.15;
             margin-bottom: 1.25rem;
@@ -96,7 +96,7 @@ $spaces = $pdo->query("
             border: 1px solid rgba(255,255,255,.1);
             border-radius: var(--radius-md);
             padding: .75rem 1rem;
-            color: var(--white);
+            color: var(--black);
         }
         .hero-img-badge .badge-title { font-weight: 600; font-size: .9rem; }
         .hero-img-badge .badge-sub   { font-size: .78rem; color: #94a3b8; }
@@ -120,7 +120,7 @@ $spaces = $pdo->query("
         .stat-item .num {
             font-family: var(--font-display);
             font-size: 1.8rem;
-            color: var(--white);
+            color: var(--black);
             line-height: 1;
         }
         .stat-item .lbl {
@@ -164,7 +164,7 @@ $spaces = $pdo->query("
             line-height: 1;
             margin-bottom: .75rem;
         }
-        .step h3 { color: var(--white); margin-bottom: .5rem; }
+        .step h3 { color: var(--black); margin-bottom: .5rem; }
         .step p  { color: #64748b; font-size: .9rem; }
 
         /* ── Testimonials ── */
@@ -232,7 +232,7 @@ $spaces = $pdo->query("
             padding: 5rem 2rem;
             text-align: center;
         }
-        .cta-section h2 { color: var(--white); margin-bottom: .75rem; }
+        .cta-section h2 { color: var(--black); margin-bottom: .75rem; }
         .cta-section p  { color: #64748b; margin-bottom: 2rem; font-size: 1rem; }
 
         /* ── Responsive ── */
@@ -329,7 +329,7 @@ $spaces = $pdo->query("
 <section class="how-section">
     <div class="section-inner">
         <div class="section-label">// How it works</div>
-        <h2 style="color:var(--white);">Three steps to your next great workday.</h2>
+        <h2 style="color:var(--black);">Three steps to your next great workday.</h2>
         <div class="steps">
             <div class="step">
                 <div class="step-num">01</div>
